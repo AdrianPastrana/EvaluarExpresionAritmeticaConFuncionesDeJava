@@ -1,0 +1,25 @@
+package ejemploearitmetica;
+
+import java.util.Scanner;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class EjemploEAritmetica {
+
+    public static void main(String[] args) {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("js");
+        Scanner read = new Scanner(System.in);
+        String entrada = "";
+        
+        System.out.println("Ingresa una ecuacion: ");
+        entrada = read.nextLine();
+        try {
+            Object operacion = engine.eval(entrada);
+            System.out.println("El Resultado de la  Expresión es:" + operacion);
+        } catch (ScriptException e) {
+            e.printStackTrace();
+        }
+    }    
+}
